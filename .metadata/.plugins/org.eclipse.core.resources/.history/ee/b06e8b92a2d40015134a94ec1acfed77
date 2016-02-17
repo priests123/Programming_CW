@@ -1,0 +1,19 @@
+package CI346;
+
+public class explicitConcurrency implements Runnable{
+	//public static void noConcurrencyPrime(int primeValue) {
+		
+	//}
+	private static int count = 0;
+	@Override
+	public void run() {
+		for(int a = 0; a <= 10000; a++)
+		{
+			count++;
+		}
+	}
+	
+	public static int getCount(){
+		return count;
+	}
+}

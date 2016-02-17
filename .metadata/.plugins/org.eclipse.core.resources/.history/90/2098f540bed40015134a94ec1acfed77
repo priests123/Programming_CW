@@ -1,0 +1,20 @@
+package CI346;
+
+public class explicitConcurrency implements Runnable{
+	private static int count = 0;
+	@Override
+	public void run() {
+		for(int a = 0; a < 10000; a++)
+		{
+			addCount();
+		}
+	}
+	
+	public static int getCount(){
+		return count;
+	}
+	
+	public static synchronized void addCount(){
+		count++;
+	}
+}

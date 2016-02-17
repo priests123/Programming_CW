@@ -1,0 +1,12 @@
+package CI346;
+
+public class Main {
+	public static void main(String[] args) 
+	{
+		int primeValue = 250000;
+		//noConcurrency.noConcurrencyPrime(primeValue);
+		explicitConcurrency explicitConcurrency = new explicitConcurrency();
+		explicitConcurrency.start();
+	}
+}
+

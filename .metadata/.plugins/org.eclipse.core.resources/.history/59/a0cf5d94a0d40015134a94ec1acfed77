@@ -1,0 +1,22 @@
+package CI346;
+
+public class explicitConcurrency extends Thread{
+	//public static void noConcurrencyPrime(int primeValue) {
+		
+	//}
+
+	@Override
+	public void run() {
+		for(int a = 0; a < 10; a++)
+		{
+			System.out.println(Thread.currentThread().getId()+"Value" + a);
+		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

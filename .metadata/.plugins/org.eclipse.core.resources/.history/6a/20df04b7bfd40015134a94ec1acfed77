@@ -1,0 +1,26 @@
+package CI346;
+
+public class explicitConcurrency implements Runnable{
+	private static int count = 0;
+	int start = 0;
+	int end = 0;
+	
+	public explicitConcurrency(int startValue, int endValue) {
+		start = startValue;
+		end = endValue;
+	}
+
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getId() + "start  " + start);
+		System.out.println(Thread.currentThread().getId() + "end  " + end);
+	}
+	
+	public static int getCount(){
+		return count;
+	}
+	
+	public static synchronized void addCount(){
+		count++;
+	}
+}

@@ -1,0 +1,67 @@
+package CI346;
+
+public class explicitConcurrency implements Runnable{
+	private static int primeCount = 0;
+	int start = 0;
+	int end = 0;
+	static long startTimer = 0;
+	static long stopTimer = 0;
+	static boolean isPrimeNumber = true;
+	
+	public explicitConcurrency(int startValue, int endValue) {
+		start = startValue;
+		end = endValue;
+	}
+
+	@Override
+	public void run() {
+		setStartTime(System.nanoTime());
+		for (int i = start; i < end; i++) {
+			//boolean isPrimeNumber = true;
+			if (i % 2 == 0) 
+			{
+				if (i == 2) 
+				{
+					primeCount++;
+				}
+			} else {
+				for (int j = 3; j < i; j += 2) 
+				{
+					if (i % j == 0) 
+					{
+						setIsPrimeNumber(false);
+						break;
+					}
+				}
+				if (isPrimeNumber) 
+				{
+					primeCount++;
+				}
+			}
+		}
+		setEndTime(System.nanoTime());
+		
+		System.out.println(Thread.currentThread().getId() + "start  " + start);
+		System.out.println(Thread.currentThread().getId() + "end  " + end);
+	}
+	
+	public static int getCount(){
+		return primeCount;
+	}
+	
+	public static synchronized void addCount(){
+		primeCount++;
+	}
+	
+	public static synchronized void setStartTime(long currTime){
+		startTimer = currTime;
+	}
+	
+	public static synchronized void setEndTime(long currTime){
+		stopTimer = currTime;
+	}
+	
+	public static synchronized void setIsPrimeNumber(boolean value){
+		isPrimeNumber = value;
+	}
+}

@@ -1,0 +1,21 @@
+package CI346;
+
+public class Main {
+	public static void main(String[] args) 
+	{
+		int primeValue = 250000;
+		//noConcurrency.noConcurrencyPrime(primeValue);
+		Thread t1 = new Thread(new explicitConcurrency(0, primeValue));
+		Thread t2 = new Thread(new explicitConcurrency(primeValue/2, primeValue));
+		t1.start();	
+		t2.start();
+		try {
+			t1.join();
+			t2.join();
+		} catch (InterruptedException e) {
+			
+		}
+		System.out.println("Value: " + explicitConcurrency.getCount());
+	}
+}
+
