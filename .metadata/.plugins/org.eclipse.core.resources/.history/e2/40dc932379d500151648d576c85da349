@@ -1,0 +1,55 @@
+package CI346;
+
+
+import java.util.stream.Stream;
+
+public class Main {
+	public static void main(String[] args) throws InterruptedException 
+	{
+		int primeValue = 1000;
+		long startTimer = 0;
+		long endTimer = 0;
+		
+		//NO CONCURRENCY
+		
+		startTimer = System.nanoTime();
+		noConcurrency.noConcurrencyPrime(primeValue);
+		endTimer = System.nanoTime();
+		System.out.printf("The range of numbers is between 0 and %d\n\n", primeValue);
+		System.out.printf("The no concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
+		
+		
+		//EXPLICIT CONCURRENCY
+		
+		Thread t1 = new Thread(new explicitConcurrency(2, primeValue/2));
+		Thread t2 = new Thread(new explicitConcurrency(primeValue/2, primeValue));
+		startTimer = System.nanoTime();
+		t1.start();	
+		t2.start();
+		t1.join();
+		t2.join();
+		endTimer = System.nanoTime();
+		System.out.printf("The explicit concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
+		
+		
+		
+		//implicitConcurrency ic = new implicitConcurrency();
+	
+		/**long startTimer = System.nanoTime();
+		int startValue = 2;
+		long count = Stream.iterate(2 , n -> n+1).limit(primeValue - startValue).parallel()
+				.filter(n -> implicitConcurrency.calculatePrimes(n)).count();
+		long stopTimer = System.nanoTime();
+		double tt = (double) (stopTimer - startTimer) / 1000000000;
+		System.out.printf("The program took %.5f seconds to execute\n", tt);
+		System.out.print("Total count of primes:   " + count);**/
+		
+		
+	}
+	
+	public static String calculateTimeTaken(long startTime, long endTime){
+		double timeTaken = (double) (endTime - startTime) / 1000000000;
+		return String.format("%.5f", timeTaken);
+	}
+}
+

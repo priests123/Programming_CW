@@ -1,0 +1,32 @@
+package CI346;
+
+public class Account {
+	private double theBalance = 0.0d;
+	private String theName = "";
+	public Account() {theBalance = 0.00;}
+	public Account( String name, double openingAmount)
+	{
+		theName = name;
+		theBalance = openingAmount;
+	}
+	public double getBalance()
+	{
+		return theBalance;
+	}
+	
+	public double withdraw (final double money)
+	{
+		if (theBalance - money >= 0)
+		{theBalance = theBalance - money;
+		return money;			
+		}else {
+			return 0.00;
+		}
+	}
+	public void deposit ( final double money){
+		theBalance = theBalance + money;
+	}
+	public String getName(){
+		return theName;
+	}
+}
