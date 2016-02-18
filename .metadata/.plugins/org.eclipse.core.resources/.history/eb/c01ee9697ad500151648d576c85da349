@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException 
 	{
 		int primeStart = 2;
-		int primeEnd = 250000;
+		int primeEnd = 100000;
 		long startTimer = 0;
 		long endTimer = 0;
 		
@@ -25,7 +25,7 @@ public class Main {
 		
 		//EXPLICIT CONCURRENCY
 		
-		Thread t1 = new Thread(new explicitConcurrency(primeStart, primeEnd/2));
+		Thread t1 = new Thread(new explicitConcurrency(2, primeEnd/2));
 		Thread t2 = new Thread(new explicitConcurrency(primeEnd/2, primeEnd));
 		startTimer = System.nanoTime();
 		t1.start();	
@@ -39,8 +39,8 @@ public class Main {
 		//IMPLICIT CONCURRENCY
 		
 		startTimer = System.nanoTime();
-		long count = Stream.iterate(primeStart , a -> a+1).parallel().limit(primeEnd - primeStart)
-				.filter(b -> implicitConcurrency.calculatePrimes(b)).count();
+		long count = Stream.iterate(primeStart , n -> n+1).parallel().limit(primeEnd - primeStart)
+				.filter(n -> implicitConcurrency.calculatePrimes(n)).count();
 		endTimer = System.nanoTime();
 		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), count);	
 	}
