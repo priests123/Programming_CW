@@ -1,0 +1,21 @@
+package CI346;
+
+public class explicitConcurrencyThreadPool implements Runnable{
+
+	private int countVal = 0;
+	
+	public explicitConcurrencyThreadPool(int val){
+		countVal = val;
+	}
+	
+	public void run() {
+		System.out.println(countVal);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

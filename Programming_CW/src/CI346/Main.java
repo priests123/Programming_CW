@@ -1,6 +1,12 @@
 package CI346;
 
 
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Stream;
 
 public class Main {
@@ -20,7 +26,7 @@ public class Main {
 		startTimer = System.nanoTime();
 		noConcurrency.noConcurrencyPrime(primeStart, primeEnd);
 		endTimer = System.nanoTime();
-		System.out.printf("The no concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
+		System.out.printf("The no concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
 		
 		
 		//EXPLICIT CONCURRENCY
@@ -33,8 +39,29 @@ public class Main {
 		t1.join();
 		t2.join();
 		endTimer = System.nanoTime();
-		System.out.printf("The explicit concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
+		System.out.printf("The explicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
 		
+		
+		//EXPLICIT CONCURRENCY WITH THREAD POOL
+		
+		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ArrayList<Future<Integer>> list = new ArrayList<Future<Integer>>();
+		startTimer = System.nanoTime();
+		for(int a = primeStart; a < primeEnd; a++){
+			Callable<Integer> worker = new  explicitConcurrencyThreadPool(a);
+			Future<Integer> submit = executor.submit(worker);
+			list.add(submit);
+		}
+		int primeCount = 0;
+		for (Future<Integer> future : list) {
+		      try {
+		    	  primeCount = primeCount + future.get();
+		      } catch (ExecutionException e) {}
+		}
+		endTimer = System.nanoTime();
+		executor.shutdown();
+		System.out.printf("The explicit concurrency with thread pool program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), primeCount);
+		  
 		
 		//IMPLICIT CONCURRENCY
 		
@@ -42,7 +69,7 @@ public class Main {
 		long count = Stream.iterate(primeStart , a -> a+1).parallel().limit(primeEnd - primeStart)
 				.filter(b -> implicitConcurrency.calculatePrimes(b)).count();
 		endTimer = System.nanoTime();
-		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n\n", calculateTimeTaken(startTimer, endTimer), count);	
+		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), count);	
 	}
 	
 	public static String calculateTimeTaken(long startTime, long endTime)

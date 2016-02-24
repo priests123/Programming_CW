@@ -1,0 +1,49 @@
+package CI346;
+
+public class explicitConcurrencyThreadPool implements Runnable{
+
+	private int countVal = 0;
+	private static int primeCount = 0;
+	
+	public explicitConcurrencyThreadPool(int val){
+		countVal = val;
+	}
+	
+	public void run() {
+		
+		boolean isPrimeNumber = true;
+		if (countVal % 2 == 0) 
+		{
+			if (countVal == 2) 
+			{
+				addCount();
+			}
+		} else {
+			for (int b = 3; b < countVal; b += 2) 
+			{
+				if (countVal % b == 0) 
+				{
+					isPrimeNumber = false;
+					break;
+				}
+			}
+			if (isPrimeNumber) 
+			{
+				addCount();
+			}
+		}
+		
+		
+	}
+	
+	public static int getCount()
+	{
+		return primeCount;
+	}
+	
+	public static synchronized void addCount()
+	{
+		primeCount++;
+	}
+
+}

@@ -1,0 +1,15 @@
+package CI346;
+
+public class explicitConcurrencyThreadPool implements Runnable{
+
+	private int countVal = 0;
+	
+	public explicitConcurrencyThreadPool(int val){
+		countVal = val;
+	}
+	
+	public void run() {
+		System.out.println(countVal);
+	}
+
+}
