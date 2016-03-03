@@ -1,0 +1,31 @@
+package CI346;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
+public class noConcurrency {
+	
+	public static void noConcurrencyPrime(int startNumber, int endNumber) 
+	{
+		for(int a = startNumber; a <= endNumber; a++){
+			long currNum = a;
+			long m = 0;
+			int digit = 0;
+			HashSet<Long> values = new HashSet<Long>();
+			while(currNum != 1 && values.add(currNum)){
+				m = 0;
+				while(currNum > 0){
+					digit = (int) (currNum % 10);
+					m = m + (digit*digit);
+					currNum = currNum / 10;
+				}
+				currNum = m;
+			}
+			if(currNum == 1){
+				System.out.println(a);
+			}
+		}
+	}
+	
+}

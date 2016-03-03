@@ -1,7 +1,0 @@
-package CI346;
-
-public class explicitConcurrency {
-	public static void noConcurrencyPrime(int primeValue) {
-		
-	}
-}

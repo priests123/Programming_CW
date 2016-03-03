@@ -1,0 +1,17 @@
+package CI346;
+
+public class noConcurrency {
+	
+	static int primeCount = 0;
+	
+	public static void noConcurrencyPrime(int primeStart, int primeEnd) 
+	{
+		
+	}
+	
+	public static int getCount()
+	{
+		return primeCount;
+	}
+	
+}

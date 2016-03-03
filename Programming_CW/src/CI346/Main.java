@@ -1,6 +1,5 @@
 package CI346;
 
-
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -11,35 +10,35 @@ import java.util.stream.Stream;
 
 public class Main {
 	
-	public static void main(String[] args) throws InterruptedException 
-	{
-		int primeStart = 2;
-		int primeEnd = 250000;
+	public static void main(String args[]) throws InterruptedException{
+		
+		int startNumber = 1;
+		int endNumber = 1000000;
 		long startTimer = 0;
 		long endTimer = 0;
 		
-		System.out.printf("The range of numbers is between %d and %d\n\n", primeStart, primeEnd);
-		
+		System.out.printf("The range of numbers is between %d and %d\n\n", startNumber, endNumber);
+	
 		
 		//NO CONCURRENCY
 		
 		startTimer = System.nanoTime();
-		noConcurrency.noConcurrencyPrime(primeStart, primeEnd);
+		noConcurrency.noConcurrencyPrime(startNumber, endNumber);
 		endTimer = System.nanoTime();
-		System.out.printf("The no concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
+		System.out.printf("The no concurrency program took %s seconds to complete and found %d happy prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCountOfHappyPrime());
 		
-		
+			
 		//EXPLICIT CONCURRENCY
 		
-		Thread t1 = new Thread(new explicitConcurrency(primeStart, primeEnd/2));
-		Thread t2 = new Thread(new explicitConcurrency(primeEnd/2, primeEnd));
+		Thread t1 = new Thread(new explicitConcurrency(startNumber,endNumber/2));
+		Thread t2 = new Thread(new explicitConcurrency((endNumber/2)+1, endNumber));
 		startTimer = System.nanoTime();
 		t1.start();	
 		t2.start();
 		t1.join();
 		t2.join();
 		endTimer = System.nanoTime();
-		System.out.printf("The explicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
+		System.out.printf("The explicit concurrency program took %s seconds to complete and found %d happy prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCountOfHappyPrime());
 		
 		
 		//EXPLICIT CONCURRENCY WITH THREAD POOL
@@ -47,7 +46,7 @@ public class Main {
 		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		ArrayList<Future<Integer>> list = new ArrayList<Future<Integer>>();
 		startTimer = System.nanoTime();
-		for(int a = primeStart; a < primeEnd; a++){
+		for(int a = startNumber; a < endNumber; a++){
 			Callable<Integer> worker = new  explicitConcurrencyThreadPool(a);
 			Future<Integer> submit = executor.submit(worker);
 			list.add(submit);
@@ -60,20 +59,19 @@ public class Main {
 		}
 		endTimer = System.nanoTime();
 		executor.shutdown();
-		System.out.printf("The explicit concurrency with thread pool program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), primeCount);
+		System.out.printf("The explicit concurrency with thread pool program took %s seconds to complete and found %d happy prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), primeCount);
 		  
 		
 		//IMPLICIT CONCURRENCY
 		
 		startTimer = System.nanoTime();
-		long count = Stream.iterate(primeStart , a -> a+1).parallel().limit(primeEnd - primeStart)
+		long count = Stream.iterate(startNumber , a -> a+1).parallel().limit(endNumber - startNumber)
 				.filter(b -> implicitConcurrency.calculatePrimes(b)).count();
 		endTimer = System.nanoTime();
-		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), count);	
+		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d happy prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), count);	
 	}
 	
-	public static String calculateTimeTaken(long startTime, long endTime)
-	{
+	public static String calculateTimeTaken(long startTime, long endTime){
 		double timeTaken = (double) (endTime - startTime) / 1000000000;
 		return String.format("%.5f", timeTaken);
 	}

@@ -486,3 +486,579 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-02-28 19:07:41.235 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_73
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-28 19:08:21.223
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-28 19:08:21.292
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Michael'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2016-02-28 20:44:04.662
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2016-02-28 20:44:06.765
+!MESSAGE DDMS files not found: C:\eclipse\platform-tools\adb.exe C:\eclipse\platform-tools\hprof-conv.exe C:\eclipse\tools\traceview.bat 
+!SESSION 2016-03-02 10:45:30.399 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_73
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-02 10:46:16.274
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-02 10:46:16.359
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Michael'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2016-03-02 11:02:32.749
+!MESSAGE DDMS files not found: C:\eclipse\platform-tools\adb.exe C:\eclipse\platform-tools\hprof-conv.exe C:\eclipse\tools\traceview.bat 
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-03-03 12:39:58.457
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package CI346;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Stream;
+
+public class Main {
+	
+	public static void main(String args[]){
+		
+		int testNo = 13;
+		LinkedList<Integer> value = new LinkedList<Integer>();
+		int num=0;
+		while(num != 1){
+			num = testNo;
+		while(testNo > 0){
+			int a = testNo % 10;
+			value.push(a);
+			testNo = testNo / 10;
+		}
+		int total=0;
+		for(int a=0; a<value.size(); a++){
+			int currNum = value.get(a);
+			total = total + (currNum * currNum);
+		}
+		testNo = num;[]
+		}
+		
+		
+		
+		
+	}
+		
+		
+//		int startNumber = 1;
+//		int endNumber = 20;
+//		long startTimer = 0;
+//		long endTimer = 0;
+		
+//		System.out.printf("The range of numbers is between %d and %d\n\n", startNumber, endNumber);
+		
+		//NO CONCURRENCY
+		
+//		startTimer = System.nanoTime();
+//		noConcurrency.noConcurrencyPrime(startNumber, endNumber);
+//		endTimer = System.nanoTime();
+//		System.out.printf("The no concurrency program took %s seconds to complete and found %d lucky prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
+		
+		
+		//EXPLICIT CONCURRENCY
+		
+//		Thread t1 = new Thread(new explicitConcurrency(startNumber,endNumber/2));
+//		Thread t2 = new Thread(new explicitConcurrency((endNumber/2)+1, endNumber));
+//		startTimer = System.nanoTime();
+//		t1.start();	
+//		t2.start();
+//		t1.join();
+//		t2.join();
+//		endTimer = System.nanoTime();
+	//	System.out.printf("The explicit concurrency program took %s seconds to complete and found %d lucky prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
+		
+		/*
+		//EXPLICIT CONCURRENCY WITH THREAD POOL
+		
+		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ArrayList<Future<Integer>> list = new ArrayList<Future<Integer>>();
+		startTimer = System.nanoTime();
+		for(int a = primeStart; a < primeEnd; a++){
+			Callable<Integer> worker = new  explicitConcurrencyThreadPool(a);
+			Future<Integer> submit = executor.submit(worker);
+			list.add(submit);
+		}
+		int primeCount = 0;
+		for (Future<Integer> future : list) {
+		      try {
+		    	  primeCount = primeCount + future.get();
+		      } catch (ExecutionException e) {}
+		}
+		endTimer = System.nanoTime();
+		executor.shutdown();
+		System.out.printf("The explicit concurrency with thread pool program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), primeCount);
+		  
+		
+		//IMPLICIT CONCURRENCY
+		
+		startTimer = System.nanoTime();
+		long count = Stream.iterate(primeStart , a -> a+1).parallel().limit(primeEnd - primeStart)
+				.filter(b -> implicitConcurrency.calculatePrimes(b)).count();
+		endTimer = System.nanoTime();
+		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), count);	
+	*/
+	
+	public static String calculateTimeTaken(long startTime, long endTime)
+	{
+		double timeTaken = (double) (endTime - startTime) / 1000000000;
+		return String.format("%.5f", timeTaken);
+	}
+	
+		}
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:270)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:259)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:552)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:171)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:90)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:789)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2016-03-03 12:39:58.507
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:270)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:259)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:552)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:171)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:90)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:789)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2016-03-03 12:39:58.511
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:270)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:202)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:259)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:552)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:171)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:90)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:729)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:789)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-03-03 12:39:58.552
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package CI346;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Stream;
+
+public class Main {
+	
+	public static void main(String args[]){
+		
+		int testNo = 13;
+		LinkedList<Integer> value = new LinkedList<Integer>();
+		int num=0;
+		while(num != 1){
+			num = testNo;
+		while(testNo > 0){
+			int a = testNo % 10;
+			value.push(a);
+			testNo = testNo / 10;
+		}
+		int total=0;
+		for(int a=0; a<value.size(); a++){
+			int currNum = value.get(a);
+			total = total + (currNum * currNum);
+		}
+		testNo = num;[]
+		}
+		
+		
+		
+		
+	}
+		
+		
+//		int startNumber = 1;
+//		int endNumber = 20;
+//		long startTimer = 0;
+//		long endTimer = 0;
+		
+//		System.out.printf("The range of numbers is between %d and %d\n\n", startNumber, endNumber);
+		
+		//NO CONCURRENCY
+		
+//		startTimer = System.nanoTime();
+//		noConcurrency.noConcurrencyPrime(startNumber, endNumber);
+//		endTimer = System.nanoTime();
+//		System.out.printf("The no concurrency program took %s seconds to complete and found %d lucky prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), noConcurrency.getCount());
+		
+		
+		//EXPLICIT CONCURRENCY
+		
+//		Thread t1 = new Thread(new explicitConcurrency(startNumber,endNumber/2));
+//		Thread t2 = new Thread(new explicitConcurrency((endNumber/2)+1, endNumber));
+//		startTimer = System.nanoTime();
+//		t1.start();	
+//		t2.start();
+//		t1.join();
+//		t2.join();
+//		endTimer = System.nanoTime();
+	//	System.out.printf("The explicit concurrency program took %s seconds to complete and found %d lucky prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), explicitConcurrency.getCount());
+		
+		/*
+		//EXPLICIT CONCURRENCY WITH THREAD POOL
+		
+		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ArrayList<Future<Integer>> list = new ArrayList<Future<Integer>>();
+		startTimer = System.nanoTime();
+		for(int a = primeStart; a < primeEnd; a++){
+			Callable<Integer> worker = new  explicitConcurrencyThreadPool(a);
+			Future<Integer> submit = executor.submit(worker);
+			list.add(submit);
+		}
+		int primeCount = 0;
+		for (Future<Integer> future : list) {
+		      try {
+		    	  primeCount = primeCount + future.get();
+		      } catch (ExecutionException e) {}
+		}
+		endTimer = System.nanoTime();
+		executor.shutdown();
+		System.out.printf("The explicit concurrency with thread pool program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), primeCount);
+		  
+		
+		//IMPLICIT CONCURRENCY
+		
+		startTimer = System.nanoTime();
+		long count = Stream.iterate(primeStart , a -> a+1).parallel().limit(primeEnd - primeStart)
+				.filter(b -> implicitConcurrency.calculatePrimes(b)).count();
+		endTimer = System.nanoTime();
+		System.out.printf("The implicit concurrency program took %s seconds to complete and found %d prime numbers\n\n", calculateTimeTaken(startTimer, endTimer), count);	
+	*/
+	
+	public static String calculateTimeTaken(long startTime, long endTime)
+	{
+		double timeTaken = (double) (endTime - startTime) / 1000000000;
+		return String.format("%.5f", timeTaken);
+	}
+	
+		}
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:292)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1209)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:809)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2016-03-03 12:39:58.558
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:292)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1209)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:809)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2016-03-03 12:39:58.561
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2845)
+	at org.eclipse.jdt.core.dom.ASTConverter.setTypeAnnotationsAndSourceRangeOnArray(ASTConverter.java:3418)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToArray(ASTConverter.java:3164)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3626)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:3437)
+	at org.eclipse.jdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:458)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1255)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2679)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3055)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2745)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:633)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:195)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2956)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1372)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:292)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1209)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:809)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.452
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.454
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.456
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.458
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.462
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 12:48:49.464
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.168
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.169
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.171
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.172
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.173
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.disable.grammar.constraints
+
+!ENTRY org.eclipse.ui 4 4 2016-03-03 13:36:07.176
+!MESSAGE Could not retrieve EHandlerService or ICommandService from context evaluation context fororg.eclipse.wst.xml.ui.reload.dependencies
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:37:54.415
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:37:58.429
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:38:01.238
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:38:06.067
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:38:46.126
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:38:51.911
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:41:02.850
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:41:34.736
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:42:56.972
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:45:10.793
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:45:21.688
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:45:53.661
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:46:05.725
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:46:09.048
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:47:40.235
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 13:48:24.157
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 14:23:37.645
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 14:23:46.714
+!MESSAGE Invalid stack frame
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2016-03-03 14:33:39.305
+!MESSAGE Invalid stack frame

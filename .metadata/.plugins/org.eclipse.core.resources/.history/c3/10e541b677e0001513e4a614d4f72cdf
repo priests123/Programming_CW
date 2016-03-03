@@ -1,0 +1,96 @@
+package CI346;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class explicitConcurrency implements Runnable{
+	
+	static ArrayList<Integer> values;
+	int start = 0;
+	int end = 0;
+	static int deletePosition = 1;
+	static int whileLoopCount = 1;
+
+	public explicitConcurrency(int startNumber, int endNumber) {
+		start = startNumber;
+		end = endNumber;
+		values = new ArrayList<Integer>();
+		
+	}
+
+	@Override
+	public void run() {
+		for(int a = start; a <= end; a++){
+			addValues(a);
+		}
+		System.out.println(values);
+	//	System.out.println(values);
+		// Populate values with all numbers
+	//	for(int a = start; a <= end; a++){
+		//	System.out.println(Thread.currentThread().getName() + values + "Before");
+	//		addValues(a);
+	//	System.out.println(Thread.currentThread().getName() + values + "After");
+		}
+		//System.out.println(Thread.currentThread().getName() + values);
+		
+		
+		/*
+		// Removes numbers that aren't lucky
+		while(getDeletePosition() < values.size()){
+			for(int n = getDeletePosition(); n < values.size(); n = n + getDeletePosition())
+				values.remove(n);
+
+			setDeletePosition(values.get(getWhileLoopCount())-1);
+			whileLoopCount++;
+		}
+
+		//Removes 1 from values as not prime
+		values.set(0, 0);
+		//Removes numbers that aren't prime
+		for(int b = 0; b < values.size(); b++){
+			int currVal = values.get(b);
+			for (int c = 3; c < currVal; c += 2){
+				if (currVal % c == 0) {
+					values.set(b, 0);
+					break;
+				}
+			}
+		}*/
+	
+	
+	public static int getCount()
+	{
+		return (values.size() - Collections.frequency(values, 0));
+	}
+	
+	public static synchronized int getDeletePosition(){
+		return deletePosition;
+	}
+	
+	public static synchronized void setDeletePosition(int value){
+		deletePosition = value;
+	}
+	
+	public static synchronized int getWhileLoopCount(){
+		return whileLoopCount;
+	}
+	
+	public static synchronized void addWhileLoopCount(){
+		whileLoopCount++;
+	}
+	public static synchronized void addValues(int value){
+		values.add(value);
+	}
+	
+	
+	public static synchronized void addToValues()
+	{
+		
+	}
+	
+	public static synchronized void removeFromValues()
+	{
+		
+	}
+	
+}

@@ -1,0 +1,54 @@
+package CI346;
+
+import java.util.HashSet;
+
+public class noConcurrency {
+	
+	public static void noConcurrencyPrime(int startNumber, int endNumber) 
+	{
+		int countOfHappyPrime = 0;
+		for(int a = startNumber; a <= endNumber; a++){
+			int currNum = a;			
+			HashSet<Integer> values = new HashSet<Integer>();
+			//while not 1 and not already stored in HashSet, if number matches one in HashSet, not happy
+			while(currNum != 1 && values.add(currNum)){
+				int squaredTotal = 0;
+				//while loop adds the squared digits together to get sum of squared digits
+				while(currNum > 0){
+					int digit =  currNum % 10;
+					squaredTotal = squaredTotal + (digit*digit);
+					currNum = currNum / 10;
+				}
+				currNum = squaredTotal;
+			}
+			if(currNum == 1){
+				System.out.println("Happy Number: " + a);
+				
+				int num = a;
+				boolean isPrimeNumber = true;
+				if (num % 2 == 0) 
+				{
+					if (num == 2) 
+					{
+						countOfHappyPrime++;
+					}
+				} else {
+					for (int b = 3; b < num; b += 2) 
+					{
+						if (num % b == 0) 
+						{
+							isPrimeNumber = false;
+							break;
+						}
+					}
+					if (isPrimeNumber) 
+					{
+						countOfHappyPrime++;
+					}
+				}	
+			}
+		}
+		System.out.println("Happy prime number" + countOfHappyPrime);
+	}
+	
+}

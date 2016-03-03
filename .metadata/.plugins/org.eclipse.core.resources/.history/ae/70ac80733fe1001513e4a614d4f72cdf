@@ -1,0 +1,43 @@
+package CI346;
+
+
+import java.util.HashSet;
+public class Happy{
+   public static boolean happy(long number){
+       
+	   long m = 0;
+       int digit = 0;
+       HashSet<Long> cycle = new HashSet<Long>();
+       while(number != 1 && cycle.add(number)){
+           m = 0;
+           while(number > 0){
+               digit = (int)(number % 10);
+               m = m + (digit*digit);
+               number = number / 10;
+           }
+           number = m;
+           if(number == 4){
+        	   return number == 0;
+           }
+       }
+       return number == 1;
+   }
+ 
+   public static void main(String[] args){
+	   long startTimer = 0;
+		long endTimer = 0;
+	   
+	   
+		startTimer = System.nanoTime();
+       for(long num = 1,count = 0;count<100;num++){
+           if(happy(num)){
+               System.out.println(num);
+               count++;
+           }
+       }
+       endTimer = System.nanoTime();
+       
+       double timeTaken = (double) (endTimer - startTimer) / 1000000000;
+		System.out.printf("%.5f", timeTaken);
+   }
+}

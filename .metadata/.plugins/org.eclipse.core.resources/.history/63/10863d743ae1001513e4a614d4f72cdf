@@ -1,0 +1,73 @@
+package CI346;
+import java.util.HashSet;
+import java.util.Scanner;
+public class Happy{
+	  public static void main(String[] args) {
+		  
+		          Scanner kbd = new Scanner(System.in);
+		  
+		          System.out.print("Input Number: ");
+		  
+		          int num = kbd.nextInt();
+		  
+		           
+		  
+		          int digit;
+		  
+		          int sumsquare2;
+		  
+		          int ctr = 0;
+		  
+		           
+		  
+		          int sumsquare = num * num;
+		  
+		          System.out.println(num);
+		  
+		          System.out.println(sumsquare);
+		  
+		           
+		  
+		          while((sumsquare>1)&&(ctr<100)){
+		  
+		              sumsquare2 = sumsquare;
+		  
+		              sumsquare = 0;
+		  
+		              ctr = ctr++;
+		  
+		          while(sumsquare2 > 0){
+		  
+		                  digit = sumsquare2%10;
+		  
+		                  sumsquare = sumsquare + (digit * digit);
+		  
+		                  sumsquare2 = sumsquare2/10;
+		  
+		                   
+		  
+		              }
+		  
+		              System.out.println(sumsquare);
+		  
+		          }while((sumsquare>1)&&(ctr<100));
+		  
+		          if(sumsquare==1){
+		  
+		              System.out.println(num+" is a happy number");
+		  
+		               
+		  
+		          }
+		  
+		          if(ctr==100){
+		  
+		                  System.out.println(num+" is not a happy number");
+		  
+		                   
+		  
+		              }
+		  
+		      }
+
+}

@@ -1,0 +1,44 @@
+package CI346;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class noConcurrency {
+	
+	static ArrayList<Integer> values = new ArrayList<Integer>();
+	
+	public static void noConcurrencyPrime(int startNumber, int endNumber) 
+	{
+		
+		int deletePosition = 1;
+		int whileLoopCount = 1;
+		
+		for(int a = startNumber; a <= endNumber; a++)
+			values.add(a);
+		
+		while(deletePosition < values.size()){
+			for(int n = deletePosition; n < values.size(); n = n + deletePosition)
+				values.remove(n);
+
+			deletePosition = values.get(whileLoopCount)-1;
+			whileLoopCount++;
+		}
+		
+		for(int b = 0; b < values.size(); b++){
+			int currVal = values.get(b);
+			if(currVal == 1) values.set(b, 0);
+			for (int c = 3; c < currVal; c += 2){
+				if (currVal % c == 0) {
+					values.set(b, 0);
+					break;
+				}
+			}
+		}
+	}
+	
+	public static int getCount()
+	{
+		return (values.size() - Collections.frequency(values, 0));
+	}
+	
+}

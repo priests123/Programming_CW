@@ -1,0 +1,32 @@
+package CI346;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
+public class noConcurrency {
+	
+	public static void noConcurrencyPrime(int startNumber, int endNumber) 
+	{
+		for(int a = startNumber; a <= endNumber; a++){
+			long currNum = a;
+			long squaredTotal = 0;
+			
+			HashSet<Long> values = new HashSet<Long>();
+			while(currNum != 1 && values.add(currNum)){
+				squaredTotal = 0;
+				//while loop adds the squared digits together to get sum of squared digits
+				while(currNum > 0){
+					int digit = (int) (currNum % 10);
+					squaredTotal = squaredTotal + (digit*digit);
+					currNum = currNum / 10;
+				}
+				currNum = squaredTotal;
+			}
+			if(currNum == 1){
+				System.out.println(a);
+			}
+		}
+	}
+	
+}

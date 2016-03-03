@@ -1,0 +1,65 @@
+package CI346;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class explicitConcurrency implements Runnable{
+	
+	static ArrayList<Integer> values;
+	int start = 0;
+	int end = 0;
+
+	public explicitConcurrency(int startNumber, int endNumber) {
+		start = startNumber;
+		end = endNumber;
+		values = new ArrayList<Integer>();
+	}
+
+	@Override
+	public void run() {
+		int deletePosition = 1;
+		int whileLoopCount = 1;
+		
+		// Populate values with all numbers
+		for(int a = start; a <= start; a++)
+			values.add(a);
+
+		// Removes numbers that aren't lucky
+		while(deletePosition < values.size()){
+			for(int n = deletePosition; n < values.size(); n = n + deletePosition)
+				values.remove(n);
+
+			deletePosition = values.get(whileLoopCount)-1;
+			whileLoopCount++;
+		}
+
+		//Removes 1 from values as not prime
+		values.set(0, 0);
+		//Removes numbers that aren't prime
+		for(int b = 0; b < values.size(); b++){
+			int currVal = values.get(b);
+			for (int c = 3; c < currVal; c += 2){
+				if (currVal % c == 0) {
+					values.set(b, 0);
+					break;
+				}
+			}
+		}
+	}
+	
+	public static int getCount()
+	{
+		return (values.size() - Collections.frequency(values, 0));
+	}
+	
+	public static synchronized void addToValues()
+	{
+		
+	}
+	
+	public static synchronized void removeFromValues()
+	{
+		
+	}
+	
+}
